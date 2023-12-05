@@ -1,0 +1,21 @@
+<nav class="navtop">
+	<div>
+		<h1>
+			ESO Encore
+		</h1>
+		<a href="/"><i class="fas fa-home"></i>Home</a>
+		<a href="/online"><i class="fas fa-user-circle"></i>online</a>
+		<#if sessionData.user??>
+			<#if sessionData.admin>
+				<a href="/mail"><i class="fas fa-envelope"></i>Send Item</a>
+				<a href="char_data.php"><i class="fas fa-database"></i>Char</a>
+				<a href="broadcast.php"><i class="fas fa-bullhorn"></i>Broadcast</a>
+				<a href="update_role.php"><i class="fas fa-sync-alt"></i>Update</a>
+			</#if>
+			<a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
+		<#else>
+			<a href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
+			<a href="/register"><i class="fas fa-user-plus"></i>Register</a>
+		</#if>
+	</div>
+</nav>

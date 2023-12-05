@@ -1,0 +1,21 @@
+<html>
+
+<head>
+	<title>ESO - Encore</title>
+	<#include "header.html">
+</head>
+
+<body>
+	<#include "navbar.html">
+		<div class="content">
+			<h2>Welcome Page</h2>
+
+			<#if info??>
+				<p>${info}</p>
+			</#if>
+
+			<p>Welcome back, ${user.name}!</p>
+		</div>
+</body>
+
+</html>

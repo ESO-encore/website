@@ -1,0 +1,33 @@
+<html>
+
+<head>
+	<#include "header.html">
+	<title>Home Page</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	<link href="form.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<#include "navbar.html">
+		<div class="form">
+			<form method="post">
+				<label>
+					<i class="fas fa-user"></i>
+				</label for="char_id">
+				<input type="text" name="char_id" placeholder="Enter character ID" required>
+				<label>
+					<i class="fas fa-box"></i>
+				</label for="item">
+				<input type="text" name="item" placeholder="Item ID (CST·42451)" required>
+				<label>
+					<i class="fas fa-boxes"></i>
+				</label for="amount">
+				<input type="text" name="amount" placeholder="Amount Item" required>
+				<input type="submit" onclick="return confirm('Are you sure?')" name="send" value="Send Mail">
+				<input type="hidden" name="topic" value="PAKET OM">
+				<input type="hidden" name="mesg" value="Kurir JNE">
+			</form>
+		</div>
+</body>
+
+</html>

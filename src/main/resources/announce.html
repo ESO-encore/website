@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>Home Page</title>
+		<#include "header.html">
+	</head>
+	<body class="loggedin">
+		<nav class="navtop">
+			<div>
+				<h1>Admin Page</h1>
+				<a href="home.php"><i class="fas fa-home"></i>Home</a>
+				<a href="online.php"><i class="fas fa-user-circle"></i>online</a>
+				<a href="mail.php"><i class="fas fa-envelope"></i>Send Item</a>
+				<a href="char_data.php"><i class="fas fa-database"></i>Char</a>
+				<a href="broadcast.php"><i class="fas fa-bullhorn"></i>Broadcast</a>
+				<a href="update_role.php"><i class="fas fa-sync-alt"></i>Update</a>
+				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+			</div>
+		</nav>
+		<div class="login">
+		<form method="post">
+		<label>
+				<i class="fas fa-bullhorn"></i>
+				</label for="message">
+				<input type="text" name="message" id="message" placeholder="Enter Announcement" required><br>
+		<label>
+				<i class="fas fa-user"></i>
+				</label for="user">
+				<input type="text" name="user" id="user" placeholder="User (Leave blank for Announcement Red)" ><br>
+		<label>
+				<i class="fas fa-microphone-alt"></i>
+				</label for="chan" >
+				<select name="chan" id="chan">
+				<option value="9">Public</option>
+				<option value="1">System</option>
+				<option value="18">Item</option>
+				<option value="2">Party</option>
+				<option value="11">Clan</option>
+				<option value="3">Ally</option>
+				<option value="12">Class</option>
+				<option value="10">Misc</option>
+				<option value="15">Rumor</option>
+				<option value="14">Truth</option>
+				<option value="17">EXP</option>
+				<option value="19">Kills</option>
+				</select>
+				<input type="submit"  onclick="return confirm('Are you sure?')" value="Send Message">
+</form>
+</div>
+</body>
+</html>
+<br />
+<b>Notice</b>:  Undefined index: user in <b>/var/www/html/New folder/broadcast.php</b> on line <b>106</b><br />
+<br />
+<b>Notice</b>:  Undefined index: message in <b>/var/www/html/New folder/broadcast.php</b> on line <b>107</b><br />
+<br />
+<b>Notice</b>:  Undefined index: chan in <b>/var/www/html/New folder/broadcast.php</b> on line <b>108</b><br />
