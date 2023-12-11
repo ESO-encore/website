@@ -16,7 +16,7 @@ class UserService {
 	
 	def login(String username, String password) {
 		val md = MessageDigest.getInstance("MD5")
-		val digested = md.digest(password.bytes)
+		val digested = md.digest((username+password).bytes)
 		
 		if(database.doesCredentialsExist(username, digested.toHex())) {
 			val user = database.getUser(username).orElseThrow[ new RuntimeException('''Could not find user «username»''') ]
@@ -80,7 +80,7 @@ class UserService {
 		}
 
 		val md = MessageDigest.getInstance("MD5")
-		val digested = md.digest(password.bytes)
+		val digested = md.digest((username+password).bytes)
 		database.register(
 			username,
 			digested.toHex(),
