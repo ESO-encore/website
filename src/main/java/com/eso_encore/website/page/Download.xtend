@@ -16,7 +16,7 @@ class Download extends Page<Download.PageData> {
 		get()
 		
 		Spark.post(path) [ req, res |
-			val path = Paths.get(Main.properties.clientDownloadLocation)
+			val path = Paths.get(Main.properties.launcherDownloadLocation)
 			res.raw().setHeader("Content-Disposition","attachment; filename="+path.getFileName()+"");
 			
 			Files.copy(path, res.raw.outputStream)

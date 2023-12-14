@@ -9,6 +9,7 @@ class Properties {
 	val String templateDirectory
 	val String publicDirectory
 	val String clientDownloadLocation
+	val String launcherDownloadLocation
 	val String patchDirectory
 	val String version
 	val Database database

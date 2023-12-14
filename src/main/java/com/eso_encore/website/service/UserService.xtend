@@ -71,8 +71,8 @@ class UserService {
 		if (password.length > 10) {
 			throw new AuthenticationError("Password is too long, can't exceed 10 characters")
 		}
-		if (email.length > 25) {
-			throw new AuthenticationError("Email is too long, can't exceed 25 characters")
+		if (email.length > 64) {
+			throw new AuthenticationError("Email is too long, can't exceed 64 characters")
 		}
 
 		if (database.doesUserExist(username)) {

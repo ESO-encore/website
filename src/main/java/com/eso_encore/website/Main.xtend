@@ -1,6 +1,6 @@
 package com.eso_encore.website
 
-import com.eso_encore.website.page.Download
+import com.eso_encore.website.api.ClientVersion
 import com.eso_encore.website.page.Home
 import com.eso_encore.website.page.Login
 import com.eso_encore.website.page.Mail
@@ -22,7 +22,6 @@ import org.apache.log4j.LogManager
 import spark.Request
 
 import static spark.Spark.*
-import com.eso_encore.website.api.ClientVersion
 
 class Main {
 
