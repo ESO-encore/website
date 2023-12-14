@@ -1,18 +1,159 @@
+<!-- saved from url=(0026)http://www.eso-encore.com/ -->
 <html>
-	<head>
-		<title>ESO - Encore</title>
-		<#include "header.html">
-	</head>
-	<body>
-		<#include "navbar.html">
-		<div class="content">
-			<h2>Home Page</h2>
-			
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ESO - Encore</title>
+	<#include "header.html">
+</head>
+<body>
+	<#include "navbar.html">
+	<div class="content">
+		<h2>Home Page</h2>
+		
 			<#if info??>
 				<p>${info}</p>
 			</#if>
 			
-			<p>Total online Player is ${page.onlinePlayerCount}</p>
+		<div>
+			<h3>Welcome to Ether Saga Encore!</h3>
+			<pre>Hello and welcome to the world of Ether Saga Odysseys!
+Our server is currently under development and wether you are an old player or new, feel free to join us!
+There are many changes being made in comparison to original, and we are aiming for a balanced experience for everyone.
+To stay up to date with the changes, visit this site regularly, or join one of our social medias. 
+Discord is the fastest way of reaching us.
+				 
+
+				 	Permanent Discord Invite: <a href="https://discord.gg/F8PKvRkmTZ">https://discord.gg/F8PKvRkmTZ</a> 
+					Facebook: <a href="https://www.facebook.com/esoencore/">https://www.facebook.com/esoencore/</a>
+				 	Instagram: <a href="https://www.instagram.com/esoencore/">https://www.instagram.com/esoencore/</a> 
+				 </pre>
+
 		</div>
-	</body>
+		<button type="button" class="collapsible">Alpha changelog (click to expand)</button>
+		<div class="contentlog">
+			<pre>Change notes for Alpha (Can still be altered based on feedback):
+
+- Destroying item (after using destroyer Kong) can be tossed to forge to get rid of it quickly.
+- 12 Hour Hand of Truth available
+- Baby Homunkitten sold at Collector Val
+- Shattered void stones can now be turned into Void stone on Forge (the NPC also works)
+- 1k Solar debris = 1 Solar Fragment
+- Super Channel text color: Magenta instead of dark purple
+- Variety of cards added
+- Traps added in Ole Region (Kentauride for example)
+- Variety of pet traps added to Land ownership NPC
+- Fixed Silver Veil fly mount (wings)
+- All Recipes stack up to 9999
+- ESO-Mini games tab has been added (they used to exist in old ESO)
+- Monster HP displays as %
+- Signet names represent line numbers
+- Drops displayed with rates in game by clicking an icon next to monster name
+- Item drop colors displayed on the floor
+- Added Maven Diplo drops to RT1
+- Stats removed from Titles (we wanna see more different titles used)
+- Mounts are upgradable equally (we wanna see more different mounts used)
+- Profanity filter has been removed 
+- Cooldown on brew's has been increased to 30 seconds.
+- Removal of: Jades of aptitude, Revival Scrolls, Portal Tomes (few left very rare).
+- Removal in Ingot shop: Jades, Celestial weapons, Oxen Ultera, Fuse line items
+- Teleports to other half of Leandris
+- Fully finished Leandris map
+- Old original gears upon char creation
+- Possibility of normal ears in char creation
+
+- Fixed preview issue of items in NPC shops (no preview for example at the gear trader)
+- Fix of Arcanecraft Master Furnace not working.
+- Additional smileys added
+- Chutty, Blowtorch, Pacifier craft chances balanced more.
+- Chutty ,Blowtorch, Pacifier does not bind, can be traded, sold, even after wearing.
+- Pacifier model ->changed to new roses
+- Level 45 Signets with 3 lines drop in Gallio & Ziminia region (Elephuc drops 2 lines)
+
+- Introduced level requirements for regions (for example, cannot enter Gallio before level 60)
+- Nascent skills disabled for the time being
+- Storage space in bag for fashion (1 quest item slot per set)
+- Item max stacks increased on potions, ethrelics, jades, materials, pet revival scrolls & more
+- Lotto rewards changed a little
+
+- Max gold 200k
+- Gold item created worth 1k gold and tradable
+- LFC money has been nerfed, worth farming for pet skills but not gold
+- Changes into drop lists in dungeons and few open world monsters.
+- Working of +% stats changed, it takes the total gear bonus instead of base stat
+- Lv90 jewerly reworked to be  less cash shop dependent
+
+- Skill changes:
+- Return home cooldown reduced to 15 minutes from 60 minutes
+- Pet skills: All cash shop skills get a affinity, no more true damage pet skills
+
+- New soulstones to further increase clan skill levels
+- Changed dusts from 500 to 50 in a class change
+- Element charms craft max increased to 1-5 from 1-4.
+
+-Mystic
+
+Aquan buff increased from 30 on max level to 45 on max level
+Auspicious hymn unchanged, but because % change mentioned earlier now gives MASSIVE hp boost
+AoE range slightly increased (Untested!)
+
+-Conjurer
+
+AoE range slightly increased (Untested!)
+Signet with jaden glacier lv15 (+30 aquan)
+
+-Rogue
+
+AoE arc increased (Untested!)
+
+-Dragoon
+
+AoE arc increased (Untested!)
+
+-Shaman
+
+Greatly improved possessing possiblilties
+
+-Maven
+
+Deathseed
+Initial damage unchanged
+CC Effect unchanged
+Effective range reduced to 15 from 30, other classes AoE ranges are 10
+Cast distance unchanged
+Damage over time effect reduced to 10% per tick from 150% int damage on max level
+int buffing reduced to prevent stacking of the int.
+Class change quest added.
+More Gear drop spots
+
+-Hellion
+
+
+Disabled for the foreseeable future, strength can't be balanced. 
+Our goal is to eventually rework Hellion but only after we released enough content to justify the amount of time needed to do this. 
+</pre>
+		</div>
+
+			
+		<p>Total online Player is ${page.onlinePlayerCount}</p>
+
+
+	</div>
+
+	<script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+	</script>
+</body>
 </html>
