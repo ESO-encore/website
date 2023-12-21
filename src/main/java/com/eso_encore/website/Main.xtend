@@ -1,6 +1,7 @@
 package com.eso_encore.website
 
 import com.eso_encore.website.api.ClientVersion
+import com.eso_encore.website.page.Download
 import com.eso_encore.website.page.Home
 import com.eso_encore.website.page.Login
 import com.eso_encore.website.page.Mail
@@ -47,7 +48,7 @@ class Main {
 		val home = new Home(sessionService, databaseService)
 		val login = new Login(sessionService)
 		new Online(sessionService, databaseService, onlineHistoryService)
-//		new Download(sessionService)
+		new Download(sessionService)
 		new Mail(sessionService)
 		new MailPost(sessionService, databaseService)
 
@@ -86,6 +87,11 @@ class Main {
 		
 		//api
 		new ClientVersion()
+		
+		//client
+		get("/client/welcome") [req,res|
+			Files.readAllLines(Paths.get(properties.templateDirectory, "ingameWelcome.html")).join()
+		]
 
 		exception(Exception, [ err, req, res |
 			err.printStackTrace()

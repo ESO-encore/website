@@ -1,10 +1,14 @@
 <nav class="navtop">
 	<div>
 		<h1>
-			ESO Encore
+			<a href="/" class="title">
+				<img href="/" src="img/favicon.png" alt="logo" width="50" height="50">
+				ESO Encore
+			</a>
 		</h1>
 		<a href="/"><i class="fas fa-home"></i>Home</a>
 		<a href="/online"><i class="fas fa-user-circle"></i>online</a>
+		<a href="/download"><i class="fas fa-download"></i>download</a>
 		<#if sessionData.user??>
 			<#if sessionData.admin>
 				<a href="/mail"><i class="fas fa-envelope"></i>Send Item</a>
