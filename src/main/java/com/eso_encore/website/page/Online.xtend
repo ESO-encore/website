@@ -8,14 +8,15 @@ import com.eso_encore.website.model.User
 import spark.Request
 import com.eso_encore.website.service.OnlineHistoryService
 import com.eso_encore.website.service.OnlineHistoryService.HistoryEntry
+import spark.Service
 
 class Online extends Page<Online.PageData> {
 
 	val DatabaseService database
 	val OnlineHistoryService onlineHistoryService
 
-	new(SessionService sessionService, DatabaseService database, OnlineHistoryService onlineHistoryService) {
-		super(sessionService, "/online", "online.html")
+	new(Service service, SessionService sessionService, DatabaseService database, OnlineHistoryService onlineHistoryService) {
+		super(service, sessionService, "/online", "online.html")
 		this.database = database
 		this.onlineHistoryService = onlineHistoryService
 		get()

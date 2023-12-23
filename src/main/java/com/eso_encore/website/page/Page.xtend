@@ -1,25 +1,27 @@
 package com.eso_encore.website.page
 
+import com.eso_encore.website.Main
 import com.eso_encore.website.ResponseView
-import spark.Spark
 import com.eso_encore.website.service.SessionService
-import java.io.StringWriter
 import freemarker.template.Configuration
 import java.io.File
-import spark.Request
-import com.eso_encore.website.Main
+import java.io.StringWriter
 import org.eclipse.xtend.lib.annotations.Accessors
+import spark.Request
+import spark.Service
 
 @Accessors
 class Page<T> {
 	
 	static val Configuration cfg = buildFtlConfig
 	
+	val Service service
 	val SessionService sessionService
 	val String path
 	val String template
 	
-	new(SessionService sessionService, String path, String template) {
+	new(Service service, SessionService sessionService, String path, String template) {
+		this.service = service
 		this.sessionService = sessionService
 		this.path = path
 		this.template = template
@@ -30,13 +32,13 @@ class Page<T> {
 	}
 	
 	def get() {
-		Spark.get(path) [req, res| 
+		service.get(path) [req, res| 
 			req.respond()
 		]
 	}
 	
 	def post() {
-		Spark.post(path) [req, res| 
+		service.post(path) [req, res| 
 			req.respond()
 		]
 	}

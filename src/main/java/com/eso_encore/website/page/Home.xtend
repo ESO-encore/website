@@ -4,13 +4,14 @@ import com.eso_encore.website.service.SessionService
 import org.eclipse.xtend.lib.annotations.Data
 import com.eso_encore.website.service.DatabaseService
 import spark.Request
+import spark.Service
 
 class Home extends Page<Home.PageData> {
 	
 	val DatabaseService database
 	
-	new(SessionService sessionService, DatabaseService database) {
-		super(sessionService, "/", "index.html")
+	new(Service service, SessionService sessionService, DatabaseService database) {
+		super(service, sessionService, "/", "index.html")
 		this.database = database
 		get()
 	}

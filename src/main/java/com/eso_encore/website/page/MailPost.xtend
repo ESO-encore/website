@@ -1,17 +1,14 @@
 package com.eso_encore.website.page
 
-import com.eso_encore.website.service.DatabaseService
 import com.eso_encore.website.service.SessionService
 import org.eclipse.xtend.lib.annotations.Data
 import spark.Request
+import spark.Service
 
 class MailPost extends Page<MailPost.PageData> {
 	
-	val DatabaseService database
-	
-	new(SessionService sessionService, DatabaseService database) {
-		super(sessionService, "/mail", "mail.html")
-		this.database = database
+	new(Service service, SessionService sessionService) {
+		super(service, sessionService, "/mail", "mail.html")
 		post()
 	}
 	

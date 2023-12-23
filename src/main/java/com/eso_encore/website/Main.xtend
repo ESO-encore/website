@@ -22,7 +22,7 @@ import java.util.Map
 import org.apache.log4j.LogManager
 import spark.Request
 
-import static spark.Spark.*
+import spark.Service
 
 class Main {
 
@@ -41,17 +41,30 @@ class Main {
 
 	def static void main(String[] args) {
 		logger.info(properties)
-		port(properties.port)
+
+		val http = Service.ignite().port(80)
+		setupEndpoints(http)
+
+		if (properties.keystorePassword !== null) {
+			val https = Service.ignite().secure("eso-encore.jks", properties.keystorePassword, null, null).port(443)
+			setupEndpoints(https)
+		} else {
+			logger.warn("Not enabled HTTPS because no keystore password was found")
+		}
+
+		logger.info("Running")
+	}
+
+	def static setupEndpoints(Service it) {
 		staticFiles.location(properties.publicDirectory)
 
 		// Pages
-		val home = new Home(sessionService, databaseService)
-		val login = new Login(sessionService)
-		new Online(sessionService, databaseService, onlineHistoryService)
-		new Download(sessionService)
-		new Mail(sessionService)
-		new MailPost(sessionService, databaseService)
-
+		val home = new Home(it, sessionService, databaseService)
+		val login = new Login(it, sessionService)
+		new Online(it, sessionService, databaseService, onlineHistoryService)
+		new Download(it, sessionService)
+//		new Mail(sessionService)
+//		new MailPost(sessionService, databaseService)
 		get("/register", [req, res|req.freemarker("register.html")])
 
 		get("/logout", [ req, res |
@@ -84,12 +97,12 @@ class Main {
 				new ResponseView.Builder().setError(err.message).build().freemarker("register.html")
 			}
 		])
-		
-		//api
-		new ClientVersion()
-		
-		//client
-		get("/client/welcome") [req,res|
+
+		// api
+		new ClientVersion(it)
+
+		// client
+		get("/client/welcome") [ req, res |
 			Files.readAllLines(Paths.get(properties.templateDirectory, "ingameWelcome.html")).join()
 		]
 
@@ -97,7 +110,7 @@ class Main {
 			err.printStackTrace()
 		])
 
-		logger.info("Running")
+		println("setup " + it)
 	}
 
 	def static freemarker(Request req, String file) {

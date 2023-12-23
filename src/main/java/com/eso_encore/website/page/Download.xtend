@@ -1,21 +1,21 @@
 package com.eso_encore.website.page
 
+import com.eso_encore.website.Main
 import com.eso_encore.website.service.SessionService
+import java.nio.file.Files
+import java.nio.file.Paths
 import org.eclipse.xtend.lib.annotations.Data
 import spark.Request
-import spark.Spark
-import java.nio.file.Paths
-import com.eso_encore.website.Main
-import java.nio.file.Files
+import spark.Service
 
 class Download extends Page<Download.PageData> {
 	
 	
-	new(SessionService sessionService) {
-		super(sessionService, "/download", "download.html")
+	new(Service service, SessionService sessionService) {
+		super(service, sessionService, "/download", "download.html")
 		get()
 		
-		Spark.post(path) [ req, res |
+		service.post(path) [ req, res |
 			val path = Paths.get(Main.properties.launcherDownloadLocation)
 			res.raw().setHeader("Content-Disposition","attachment; filename="+path.getFileName()+"");
 			

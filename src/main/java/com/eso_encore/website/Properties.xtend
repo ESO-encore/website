@@ -5,13 +5,13 @@ import org.eclipse.xtend.lib.annotations.Data
 @Data
 class Properties {
 
-	val int port
 	val String templateDirectory
 	val String publicDirectory
 	val String clientDownloadLocation
 	val String launcherDownloadLocation
 	val String patchDirectory
 	val String version
+	val String keystorePassword
 	val Database database
 	
 }
