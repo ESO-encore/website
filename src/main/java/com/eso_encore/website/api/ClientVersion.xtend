@@ -14,7 +14,7 @@ class ClientVersion {
 		get("/api/version") [req,res| Main.properties.version]
 		get("/api/size") [req,res| downloadFile.length]
 		get("/api/download") [req,res| 
-			val path = Paths.get(Main.properties.clientDownloadLocation)
+			val path = downloadFile.toPath()
 			Files.copy(path, res.raw.outputStream)
 			return res.raw()
 		]

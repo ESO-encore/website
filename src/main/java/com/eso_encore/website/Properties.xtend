@@ -11,6 +11,7 @@ class Properties {
 	val String launcherDownloadLocation
 	val String patchDirectory
 	val String version
+	val String launcherVersion
 	val String keystorePassword
 	val Database database
 	

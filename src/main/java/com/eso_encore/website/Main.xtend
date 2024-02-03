@@ -23,6 +23,7 @@ import org.apache.log4j.LogManager
 import spark.Request
 
 import spark.Service
+import com.eso_encore.website.api.LauncherVersion
 
 class Main {
 
@@ -100,6 +101,7 @@ class Main {
 
 		// api
 		new ClientVersion(it)
+		new LauncherVersion(it)
 
 		// client
 		get("/client/welcome") [ req, res |
